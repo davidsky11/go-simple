@@ -5,10 +5,20 @@ import (
 	"github.com/katyusha/go-simple/started/closure"
 	"github.com/katyusha/go-simple/started/collection"
 	"github.com/katyusha/go-simple/started/function"
+	"github.com/katyusha/go-simple/started/goroutine"
 	"github.com/katyusha/go-simple/started/pointer"
 )
 
 func main() {
+	//goroutine.WaitGroupTest()
+	//goroutine.DeadLockTest()
+	//fmt.Println(goroutine.Triple(5))
+
+	//goroutine.DeferMoreTest()
+	goroutine.PanicCrashTest()
+}
+
+func test1() {
 	fmt.Println("Hello Go")
 
 	// 调用函数必须大写开头
