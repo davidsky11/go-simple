@@ -49,3 +49,34 @@ func formatOut() {
 //		%q：该值对应的双引号括起来的 GO 语法字符串字面值，必要时会采用安全的转义
 //		%x：每个字节用两字符十六进制数表示，使用 a~f
 //		%X：每个字节用两字符十六进制数表示，使用 A~F
+
+type IPAddr [4]byte
+
+// fmt 包中定义的 Stringer 是最普遍的接口之一。
+//  type Stringer interface {
+//    	String() string
+//	}
+//
+// Stringer 是一个可以用字符串描述自己的类型。fmt 包（还有很多包）都通过此接口来打印值。
+
+func PrintIPAddr() {
+	hosts := map[string]IPAddr{
+		"loopback":  {127, 0, 0, 1},
+		"googleDNS": {8, 8, 8, 8},
+	}
+
+	for name, ip := range hosts {
+		fmt.Printf("%v: %v\n", name, ip)
+	}
+}
+
+type Room struct {
+	Name   string
+	Number int
+}
+
+// 实现 Stringer interface 的 String() 方法，用于输出
+
+func (p Room) String() string {
+	return fmt.Sprintf("%v@(No.%v)", p.Name, p.Number)
+}

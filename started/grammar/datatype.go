@@ -5,7 +5,7 @@ import "fmt"
 // 基本数据类型（原生数据类型）：
 //		整型、浮点型、复数型、布尔型、字符串、字符（byte、rune）
 // 复合数据类型（派生数据类型）：
-//		数组（array）、切片（slice）、映射（map）、函数（function）、结构体（struct）、通道（channel）、接口（interface）、指针（pointer）
+//		数组（array）、切片（slice）、映射（map）、函数（function）、结构体（struct）、通道（channel）、接口（interfaces）、指针（pointer）
 
 // 整型分两大类。
 //		有符号整型：int8、int16、int32、int64、int。

@@ -59,21 +59,20 @@ func switch2() {
 	fmt.Printf("%d 年 %d 月的天数为： %d\n", year, month, days)
 }
 
-// 类型转换
-func typeSwitch() {
-	var x interface{}
+// TypeSwitch 类型转换
+func TypeSwitch(x interface{}) {
 	switch i := x.(type) {
 	case nil:
 		fmt.Printf("x 的类型： %T", i)
 	case int:
-		fmt.Printf("x 的类型： int")
+		fmt.Printf("x 的类型： int\n")
 	case float64:
-		fmt.Printf("x 的类型： float64")
+		fmt.Printf("x 的类型： float64\n")
 	case func(int) float64:
-		fmt.Printf("x 的类型： func(int) 型")
+		fmt.Printf("x 的类型： func(int) 型\n")
 	case bool, string:
-		fmt.Printf("x 的类型： bool 或 string 型")
+		fmt.Printf("x 的类型： bool 或 string 型\n")
 	default:
-		fmt.Printf("x 的类型：未知")
+		fmt.Printf("x 的类型：未知\n")
 	}
 }

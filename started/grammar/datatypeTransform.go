@@ -8,7 +8,8 @@ var a001 int = 100
 // 布尔型无法与其他类型进行转换
 func transform() {
 	float001 := float64(a001)
-	string001 := string(a001)
+	//string001 := string(a001)
+	string001 := fmt.Sprint(a001)
 	fmt.Printf("%f, %s", float001, string001)
 }
 
@@ -35,9 +36,11 @@ func cnEnTrans() {
 func intTrans() {
 	int002 := 97
 	int003 := 19968
-	result := string(int002)
+	//result := string(rune(int002))
+	//result := string(int002)
+	result := fmt.Sprint(int002)
 	fmt.Println(result)
-	result = string(int003)
+	result = string(rune(int003))
 	fmt.Println(result)
 }
 
