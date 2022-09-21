@@ -90,7 +90,7 @@ func anonymousFuncForCallback() {
 	})
 }
 
-// 可变参数
+// GetScore 可变参数
 func GetScore(scores ...float64) (sum, avg float64, count int) {
 	for _, value := range scores {
 		sum += value

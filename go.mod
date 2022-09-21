@@ -1,3 +1,3 @@
 module github.com/katyusha/go-simple
 
-go 1.18
+go 1.19
