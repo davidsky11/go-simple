@@ -2,7 +2,7 @@
 
 ## 介绍
 **go 语言 练手工程**       
-https://gitee.com/davidsky11
+https://github.com/davidsky11/go-simple
 
 ### 用例来源
 + 《Go语言101》
