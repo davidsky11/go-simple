@@ -58,3 +58,23 @@ https://github.com/davidsky11/go-simple
 **知识星球：**       
 + Go 语言研习社
 
+
+
+
+Go 库列表：
++ testify                    
+  `testify`可以说是最流行的（从 GitHub star 数来看）Go 语言测试库了。testify提供了很多方便的函数帮助我们做assert和错误信息输出。使用标准库testing，我们需要自己编写各种条件判断，根据判断结果决定输出对应的信息。           
+  testify核心有三部分内容：
+  - assert：断言；
+  - mock：测试替身；
+  - suite：测试套件。
++ testing
+  `testing` 是 Go 语言标准库自带的测试库。在 Go 语言中编写测试很简单，只需要遵循 Go 测试的几个约定，与编写正常的 Go 代码没有什么区别。Go 语言中有 3 种类型的测试：单元测试，性能测试，示例测试。
+
+
+
+
+
+```bash
+# go get -u github.com/stretchr/testify
+```
