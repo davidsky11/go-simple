@@ -42,11 +42,11 @@ func (m *ParallelMachine) Transition(event string) (ParallelState, error) {
 	if _, ok := (*m).Machines[s[0]]; ok {
 		current := m.Current()
 		(*m).Machines[s[0]].Transition(s[1])
-		for _, funct := range (*m).Subscribers {
-			funct(current, m.Current())
+		for _, function := range (*m).Subscribers {
+			function(current, m.Current())
 		}
 		return m.Current(), nil
 	}
 
-	return m.Current(), errors.New("machine key doesnot match")
+	return m.Current(), errors.New("machine key doesn't match")
 }

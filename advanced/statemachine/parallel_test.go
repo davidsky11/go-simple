@@ -64,7 +64,7 @@ func TestParallelToggle(t *testing.T) {
 
 	next, err := parallel.Transition("machine-1.TOGGLE")
 	assert.Equal(t, ParallelState{"machine-1": "off", "machine-2": "on"}, next, "Transition should occur on toggle.")
-	assert.Equal(t, nil, err, "Error should not occurr in correct transition")
+	assert.Equal(t, nil, err, "Error should not occur in correct transition")
 	assert.Equal(t, 3, times, "Subscribers should be called on transition")
 
 	next, err = parallel.Transition("machine-one")
@@ -72,16 +72,16 @@ func TestParallelToggle(t *testing.T) {
 		assert.Equal(t, errors.New("event format doesn't match"), err)
 		assert.Equal(t, next, ParallelState{"machine-1": "off", "machine-2": "on"}, "Transition should not occur on error.")
 	} else {
-		t.Error("error should occurr when key format doesn't match")
+		t.Error("error should occur when key format doesn't match")
 	}
 
 	next, err = parallel.Transition("machine-one.TOGGLE")
 	if assert.Error(t, err) {
-		assert.Equal(t, errors.New("machine key doesnot match"), err)
+		assert.Equal(t, errors.New("machine key doesn't match"), err)
 		assert.Equal(t, next, ParallelState{"machine-1": "off", "machine-2": "on"}, "Transition should not occur on error.")
 	} else {
-		t.Error("error should occurr when machine key doesnot exist")
+		t.Error("error should occur when machine key doesn't exist")
 	}
 
-	assert.Equal(t, 3, times, "Subscribers shouldnot be called on error on transition")
+	assert.Equal(t, 3, times, "Subscribers should not be called on error on transition")
 }

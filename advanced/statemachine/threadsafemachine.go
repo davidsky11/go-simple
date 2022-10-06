@@ -7,14 +7,14 @@ import (
 )
 
 // ParallelMachine to start a parallel state machine
-type ThreadsafeMachine struct {
+type ThreadSafeMachine struct {
 	Machines    Machines
 	Subscribers []func(curr, next ParallelState)
 	mu          sync.RWMutex
 }
 
 // Current returns current state of parallel machines, rlock
-func (m *ThreadsafeMachine) Current() ParallelState {
+func (m *ThreadSafeMachine) Current() ParallelState {
 	m.mu.RLock()
 	defer m.mu.RUnlock()
 	currentStateMap := make(ParallelState)
@@ -25,7 +25,7 @@ func (m *ThreadsafeMachine) Current() ParallelState {
 }
 
 // current returns current state of parallel machines, no lock
-func (m *ThreadsafeMachine) current() ParallelState {
+func (m *ThreadSafeMachine) current() ParallelState {
 	currentStateMap := make(ParallelState)
 	for machine := range (*m).Machines {
 		currentStateMap[machine] = (*m).Machines[machine].Current()
@@ -37,7 +37,7 @@ func (m *ThreadsafeMachine) current() ParallelState {
 // event format is
 //
 //	m.Transition("machinekey.eventName")
-func (m *ThreadsafeMachine) Transition(event string) (ParallelState, error) {
+func (m *ThreadSafeMachine) Transition(event string) (ParallelState, error) {
 	m.mu.Lock()
 	defer m.mu.Unlock()
 	s := strings.Split(event, ".")
@@ -54,5 +54,5 @@ func (m *ThreadsafeMachine) Transition(event string) (ParallelState, error) {
 		return m.current(), nil
 	}
 
-	return m.current(), errors.New("machine key doesnot match")
+	return m.current(), errors.New("machine key doesn't match")
 }
